@@ -326,9 +326,9 @@ function dataTable(link){
             
         })
         .then(function(data){
-            console.log(data);
+          
             members = data.results["0"].members;
-            console.log(members);
+            
             let myBottomArrayLoyalty= tenPercentArray(sortBottomTen("votes_with_party_pct"),"votes_with_party_pct");
             let myTopArrayLoyalty= tenPercentArray(sortTopTen("votes_with_party_pct"),"votes_with_party_pct");
             let myBottomArrayAttendance = tenPercentArray(sortBottomTen("missed_votes_pct"),"missed_votes_pct");
@@ -342,7 +342,10 @@ function dataTable(link){
             let houseLeastAttendance = document.getElementById("house-least-attendance-table");
             let houseMostAttendance = document.getElementById("house-most-attendance-table");
             
-
+            console.log(myBottomArrayLoyalty);
+            console.log(myTopArrayLoyalty)
+            console.log(myBottomArrayAttendance);
+            console.log(myTopArrayAttendance);
             if(location.pathname=="/house-loyalty-statistics.html"){
                 updateStatistics();
                 glanceTableMaker(statistics);
@@ -350,29 +353,29 @@ function dataTable(link){
                 tableMakerLoyalty(myTopArrayLoyalty,houseMostLoyalty);
             }else if(location.pathname=="/senate-loyalty-statistics.html"){
                 updateStatistics();
-                glanceTableMaker(statistics);
                 tableMakerLoyalty(myBottomArrayLoyalty,senateLeastLoyalty);
                 tableMakerLoyalty(myTopArrayLoyalty,senateMostLoyalty);
+                glanceTableMaker(statistics);
             }else if(location.pathname=="/senate-attendance-statistics.html"){
                 updateStatistics();
                 glanceTableMaker(statistics);
-                tableMakerAttendance(myBottomArrayAttendance,senateLeastAttendance);
-                tableMakerAttendance(myTopArrayAttendance,senateMostAttendance);
+                tableMakerAttendance(myBottomArrayAttendance,senateMostAttendance);
+                tableMakerAttendance(myTopArrayAttendance,senateLeastAttendance);
             }else if(location.pathname=="/house-attendance-statistics.html"){
                 updateStatistics();
                 glanceTableMaker(statistics);
-                tableMakerAttendance(myBottomArrayAttendance,houseLeastAttendance);
-                tableMakerAttendance(myTopArrayAttendance,houseMostAttendance);
+                tableMakerAttendance(myBottomArrayAttendance,houseMostAttendance);
+                tableMakerAttendance(myTopArrayAttendance,houseLeastAttendance);
             }else{}
             
         })
         .catch(error => alert(error));
 } 
 
-if(location.pathname=="/house-loyalty-statistics.html" || "/house-attendance-statistics.html"){
+if(location.pathname=="/house-loyalty-statistics.html" || location.pathname== "/house-attendance-statistics.html"){
     dataTable("https://api.propublica.org/congress/v1/113/house/members.json");
-}else if(location.pathname=="/senate-loyalty-statistics.html" || "/senate-attendance-statistics.html"){
+}else if(location.pathname=="/senate-loyalty-statistics.html" || location.pathname=="/senate-attendance-statistics.html"){
     dataTable("https://api.propublica.org/congress/v1/113/senate/members.json");
-}else{}
+}
 
 
