@@ -11,6 +11,7 @@
     </head>
 
 <body class="body">
+    <div id="app">
     <div class="logo_e-mail">
         <div class="logo">
             <img src="pie-chart.png" class="bar_graph">
@@ -20,6 +21,7 @@
         <div><img class="email_image" src="close-envelope.png"><a href="mailto:info@tgif.net"> info@tgif.net</a></div>
     </div>
     <nav class="top_side">
+        
         <button type="button" class="btn btn-primary"><a href="/home-starter-page.html">Home |</a></button>
         <div>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Congress 113</button>
@@ -28,6 +30,7 @@
                 <li><a href="/senate-data.html">Senate Data</a></li>
             </ul>
         </div>
+        
         <div>
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Attendance</button>
             <ul class="dropdown-menu">
@@ -42,12 +45,13 @@
                 <li><a href="/senate-loyalty-statistics.html">Senate Loyalty</a></li>
             </ul>
         </div>
+        
     </nav>
     <div class="container">
         <div class="party_filter"> Filter by party:
-            <input type="checkbox" id="republican" value="repub"> Republican
-            <input type="checkbox" id="democrat" value="democ"> Democrat
-            <input type="checkbox" id="independent" value="indep"> Independent
+            <input type="checkbox" id="republican" value="repub" v-on:click="filterTableByParty"> Republican
+            <input type="checkbox" id="democrat" value="democ" v-on:click="filterTableByParty"> Democrat
+            <input type="checkbox" id="independent" value="indep" v-on:click="filterTableByParty"> Independent
         </div>
         <div class="what_state">
             Filter by state:
@@ -57,10 +61,60 @@
         </div>
     </div>
     <h1>House</h1>
-    <table class="table" id="senate-data"></table>
+    <table class="table">
+        
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Party</td>
+                    <td>State</td>
+                    <td>Seniority</td>
+                    <td>% of votes</td>
+                </tr>
+            </thead>
+        <tbody>
+        
+            
+            <tr v-for="member in members" v-show="show">
+                    <td>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
+                    <td>{{member.party}}</td>
+                    <td>{{member.state}}</td>
+                    <td>{{member.seniority}}</td>
+                    <td>{{member.votes_with_party_pct}}</td>
+
+            </tr>
+          
+         
+            <tr v-for="member in partyArray" v-show= "!show" v-for="member in members">
+                <td>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
+                <td>{{member.party}}</td>
+                <td>{{member.state}}</td>
+                <td>{{member.seniority}}</td>
+                <td>{{member.votes_with_party_pct}}</td>
+            </tr>
+           
+        
+        </tbody>
+        
+    </table>
     <div class="bottom_side">
         <img src="copyright.png" class="copyright">2016 TGIF | All Rights Reserved
     </div>
-    <script src="main.js"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="my-vue.js"></script>
+<!--    <script src="main.js"></script>-->
 </body>
 </html>
+<!--<div id="main">
+    
+    {{message}}
+    
+    <div v-if="blah">Now you see me!</div>
+    
+    <ol>
+        <li v-for="thing in todos">{{ thing }}</li>
+    </ol>
+    
+    <button v-on:click="reverseMessage">Click me!</button>
+    -->

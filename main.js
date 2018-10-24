@@ -151,9 +151,9 @@ function dataTable(link){
             
         })
         .then(function(data){
-            console.log(data);
+            
             members = data.results["0"].members;
-            console.log(data);
+            
             myFunction(members);
             document.getElementById("democrat").addEventListener("click", function () {
                 myFunction(filterTableByParty());

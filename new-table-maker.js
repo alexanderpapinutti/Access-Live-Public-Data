@@ -342,10 +342,6 @@ function dataTable(link){
             let houseLeastAttendance = document.getElementById("house-least-attendance-table");
             let houseMostAttendance = document.getElementById("house-most-attendance-table");
             
-            console.log(myBottomArrayLoyalty);
-            console.log(myTopArrayLoyalty)
-            console.log(myBottomArrayAttendance);
-            console.log(myTopArrayAttendance);
             if(location.pathname=="/house-loyalty-statistics.html"){
                 updateStatistics();
                 glanceTableMaker(statistics);

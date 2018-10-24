@@ -11,7 +11,13 @@
     padding-right: 3%;
 }
 
+#app{
+    width:90%;
+}
 
+.new-width {
+    display: flex;
+}
 
 .glance {
     width: 50%;
