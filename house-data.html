@@ -1,109 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
 <body class="body">
     <div id="app">
-    <div class="logo_e-mail">
-        <div class="logo">
-            <img src="pie-chart.png" class="bar_graph">
-            <h1>TGIF</h1>
+        <div class="logo_e-mail">
+            <div class="logo">
+                <img src="pie-chart.png" class="bar_graph">
+                <h1>TGIF</h1>
 
+            </div>
+            <div><img class="email_image" src="close-envelope.png"><a href="mailto:info@tgif.net"> info@tgif.net</a></div>
         </div>
-        <div><img class="email_image" src="close-envelope.png"><a href="mailto:info@tgif.net"> info@tgif.net</a></div>
-    </div>
-    <nav class="top_side">
-        
-        <button type="button" class="btn btn-primary"><a href="/home-starter-page.html">Home |</a></button>
-        <div>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Congress 113</button>
-            <ul class="dropdown-menu">
-                <li><a href="/house-data.html">House Data</a></li>
-                <li><a href="/senate-data.html">Senate Data</a></li>
-            </ul>
-        </div>
-        
-        <div>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Attendance</button>
-            <ul class="dropdown-menu">
-                <li><a href="/house-attendance-statistics.html">House Attendance</a></li>
-                <li><a href="/senate-attendance-statistics.html">Senate Attendance</a></li>
-            </ul>
-        </div>
-        <div>
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Loyalty</button>
-            <ul class="dropdown-menu">
-                <li><a href="/house-loyalty-statistics.html">House Loyalty</a></li>
-                <li><a href="/senate-loyalty-statistics.html">Senate Loyalty</a></li>
-            </ul>
-        </div>
-        
-    </nav>
-    <div class="container">
-        <div class="party_filter"> Filter by party:
-            <input type="checkbox" id="republican" value="repub" v-on:click="filterTableByParty"> Republican
-            <input type="checkbox" id="democrat" value="democ" v-on:click="filterTableByParty"> Democrat
-            <input type="checkbox" id="independent" value="indep" v-on:click="filterTableByParty"> Independent
-        </div>
-        <div class="what_state">
-            Filter by state:
-            <select id="state-filter" class="filter">
-                <option id="option">No State selected</option>
-            </select>
-        </div>
-    </div>
-    <h1>House</h1>
-    <table class="table">
-        
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td>Party</td>
-                    <td>State</td>
-                    <td>Seniority</td>
-                    <td>% of votes</td>
-                </tr>
-            </thead>
-        <tbody>
-        
-            
-            <tr v-for="member in members" v-show="show">
-                    <td>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
-                    <td>{{member.party}}</td>
-                    <td>{{member.state}}</td>
-                    <td>{{member.seniority}}</td>
-                    <td>{{member.votes_with_party_pct}}</td>
+        <nav class="top_side">
 
-            </tr>
-          
-         
-            <tr v-for="member in partyArray" v-show= "!show" v-for="member in members">
-                <td>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
-                <td>{{member.party}}</td>
-                <td>{{member.state}}</td>
-                <td>{{member.seniority}}</td>
-                <td>{{member.votes_with_party_pct}}</td>
-            </tr>
-           
-        
-        </tbody>
-        
-    </table>
-    <div class="bottom_side">
-        <img src="copyright.png" class="copyright">2016 TGIF | All Rights Reserved
+            <button type="button" class="btn btn-primary"><a href="/home-starter-page.html">Home |</a></button>
+            <div>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Congress 113</button>
+                <ul class="dropdown-menu">
+                    <li><a href="/house-data.html">House Data</a></li>
+                    <li><a href="/senate-data.html">Senate Data</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Attendance</button>
+                <ul class="dropdown-menu">
+                    <li><a href="/house-attendance-statistics.html">House Attendance</a></li>
+                    <li><a href="/senate-attendance-statistics.html">Senate Attendance</a></li>
+                </ul>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Loyalty</button>
+                <ul class="dropdown-menu">
+                    <li><a href="/house-loyalty-statistics.html">House Loyalty</a></li>
+                    <li><a href="/senate-loyalty-statistics.html">Senate Loyalty</a></li>
+                </ul>
+            </div>
+
+        </nav>
+        <div class="container">
+            <div v-if="seen" class="cool">Please select a party before selecting a state </div>
+            <div class="party_filter"> Filter by party:
+                <input type="checkbox" id="republican" value="repub" v-on:click="selectedState"> Republican
+                <input type="checkbox" id="democrat" value="democ" v-on:click="selectedState"> Democrat
+                <input type="checkbox" id="independent" value="indep" v-on:click="selectedState"> Independent
+            </div>
+
+            <div class="what_state">
+                Filter by state:
+                <select id="state-filter" class="filter" v-on:change="selectedState">
+                    <option id="no-state" value="all">No State selected</option>
+                    <option v-for="states in statesArray" :value="states">{{states}}</option>
+                </select>
+            </div>
+        </div>
+        <div id="loader"></div>
+        <div style="display:none;" id="myDiv" class="animate-bottom">
+            <h1>House</h1>
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Party</th>
+                        <th>State</th>
+                        <th>Seniority</th>
+                        <th>% of votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="member in members" v-show="showFullTable">
+                        <td><a :href="member.url">{{member.first_name}} {{member.middle_name}} {{member.last_name}}</a></td>
+                        <td>{{member.party}}</td>
+                        <td>{{member.state}}</td>
+                        <td>{{member.seniority}}</td>
+                        <td>{{member.votes_with_party_pct}}</td>
+
+                    </tr>
+                    <tr v-for="member in partyArray" v-show="showPartyTable">
+                        <td><a :href="member.url">{{member.first_name}} {{member.middle_name}} {{member.last_name}}</a></td>
+                        <td>{{member.party}}</td>
+                        <td>{{member.state}}</td>
+                        <td>{{member.seniority}}</td>
+                        <td>{{member.votes_with_party_pct}}</td>
+                    </tr>
+                    <tr v-for="member in newStatesArray" v-show="showStatesTable">
+                        <td><a :href="member.url">{{member.first_name}} {{member.middle_name}} {{member.last_name}}</a></td>
+                        <td>{{member.party}}</td>
+                        <td>{{member.state}}</td>
+                        <td>{{member.seniority}}</td>
+                        <td>{{member.votes_with_party_pct}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="bottom_side">
+            <img src="copyright.png" class="copyright">2016 TGIF | All Rights Reserved
+        </div>
     </div>
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="my-vue.js"></script>
-<!--    <script src="main.js"></script>-->
+    <!--    <script src="main.js"></script>-->
 </body>
 </html>
 <!--<div id="main">
